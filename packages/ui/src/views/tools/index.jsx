@@ -117,7 +117,8 @@ const Tools = () => {
                     <ErrorBoundary error={error} />
                 ) : (
                     <Stack flexDirection='column' sx={{ gap: 3 }}>
-                        <ViewHeader title='Tools'>
+                        {/* Tools */}
+                        <ViewHeader title=''>
                             <Box sx={{ display: 'flex', alignItems: 'center' }}>
                                 <Button
                                     variant='outlined'
@@ -125,7 +126,8 @@ const Tools = () => {
                                     startIcon={<IconFileUpload />}
                                     sx={{ borderRadius: 2, height: 40 }}
                                 >
-                                    Load
+                                    {/* Load */}
+                                    导入
                                 </Button>
                                 <input
                                     style={{ display: 'none' }}
@@ -143,7 +145,8 @@ const Tools = () => {
                                     startIcon={<IconPlus />}
                                     sx={{ borderRadius: 2, height: 40 }}
                                 >
-                                    Create
+                                    {/* Create */}
+                                    新增
                                 </StyledButton>
                             </ButtonGroup>
                         </ViewHeader>

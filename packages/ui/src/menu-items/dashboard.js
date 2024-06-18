@@ -23,7 +23,8 @@ const dashboard = {
     children: [
         {
             id: 'chatflows',
-            title: 'Chatflows',
+            // title: 'Chatflows',
+            title: '单体智能体流程编排',
             type: 'item',
             url: '/chatflows',
             icon: icons.IconHierarchy,
@@ -31,7 +32,8 @@ const dashboard = {
         },
         {
             id: 'agentflows',
-            title: 'Agentflows',
+            // title: 'Agentflows',
+            title: '多智能体流程编排',
             type: 'item',
             url: '/agentflows',
             icon: icons.IconUsersGroup,
@@ -40,7 +42,8 @@ const dashboard = {
         },
         {
             id: 'marketplaces',
-            title: 'Marketplaces',
+            // title: 'Marketplaces',
+            title: '流程编排模板',
             type: 'item',
             url: '/marketplaces',
             icon: icons.IconBuildingStore,
@@ -48,7 +51,8 @@ const dashboard = {
         },
         {
             id: 'tools',
-            title: 'Tools',
+            // title: 'Tools',
+            title: '我的插件',
             type: 'item',
             url: '/tools',
             icon: icons.IconTool,
@@ -56,7 +60,8 @@ const dashboard = {
         },
         {
             id: 'assistants',
-            title: 'Assistants',
+            // title: 'Assistants',
+            title: '个人助理配置',
             type: 'item',
             url: '/assistants',
             icon: icons.IconRobot,
@@ -64,7 +69,8 @@ const dashboard = {
         },
         {
             id: 'credentials',
-            title: 'Credentials',
+            // title: 'Credentials',
+            title: '我的凭证',
             type: 'item',
             url: '/credentials',
             icon: icons.IconLock,
@@ -72,7 +78,8 @@ const dashboard = {
         },
         {
             id: 'variables',
-            title: 'Variables',
+            // title: 'Variables',
+            title: '公共变量配置',
             type: 'item',
             url: '/variables',
             icon: icons.IconVariable,
@@ -80,7 +87,8 @@ const dashboard = {
         },
         {
             id: 'apikey',
-            title: 'API Keys',
+            // title: 'API Keys',
+            title: '我的密钥',
             type: 'item',
             url: '/apikey',
             icon: icons.IconKey,
@@ -88,7 +96,8 @@ const dashboard = {
         },
         {
             id: 'document-stores',
-            title: 'Document Stores',
+            // title: 'Document Stores',
+            title: '文档存储',
             type: 'item',
             url: '/document-stores',
             icon: icons.IconFiles,

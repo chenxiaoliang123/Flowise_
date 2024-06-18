@@ -108,7 +108,8 @@ const ProfileSection = ({ username, handleLogout }) => {
                     <Transitions in={open} {...TransitionProps}>
                         <Paper>
                             <ClickAwayListener onClickAway={handleClose}>
-                                <MainCard border={false} elevation={16} content={false} boxShadow shadow={theme.shadows[16]}>
+                                {/* border={false} */}
+                                <MainCard elevation={16} content={false} boxShadow shadow={theme.shadows[16]}>
                                     {username && (
                                         <Box sx={{ p: 2 }}>
                                             <Typography component='span' variant='h4'>

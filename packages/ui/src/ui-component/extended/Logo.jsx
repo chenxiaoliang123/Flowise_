@@ -1,6 +1,3 @@
-import logo from '@/assets/images/flowise_logo.png'
-import logoDark from '@/assets/images/flowise_logo_dark.png'
-
 import { useSelector } from 'react-redux'
 
 // ==============================|| LOGO ||============================== //
@@ -10,11 +7,12 @@ const Logo = () => {
 
     return (
         <div style={{ alignItems: 'center', display: 'flex', flexDirection: 'row' }}>
-            <img
+            {/* <img
                 style={{ objectFit: 'contain', height: 'auto', width: 150 }}
                 src={customization.isDarkMode ? logoDark : logo}
                 alt='Flowise'
-            />
+            /> */}
+            <h3 style={{ marginLeft: 10, color: customization.isDarkMode ? '#fff' : '#826eaa' }}>智慧工坊流程编排系统</h3>
         </div>
     )
 }

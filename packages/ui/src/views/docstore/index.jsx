@@ -145,7 +145,8 @@ const Documents = () => {
                 <ErrorBoundary error={error} />
             ) : (
                 <Stack flexDirection='column' sx={{ gap: 3 }}>
-                    <ViewHeader onSearchChange={onSearchChange} search={true} searchPlaceholder='Search Name' title='Document Store'>
+                    {/* Document Store */}
+                    <ViewHeader onSearchChange={onSearchChange} search={true} searchPlaceholder='Search Name' title=''>
                         <ToggleButtonGroup
                             sx={{ borderRadius: 2, maxHeight: 40 }}
                             value={view}
@@ -185,7 +186,8 @@ const Documents = () => {
                             startIcon={<IconPlus />}
                             id='btn_createVariable'
                         >
-                            Add New
+                            {/* Add New */}
+                            新增
                         </StyledButton>
                     </ViewHeader>
                     {!view || view === 'card' ? (
