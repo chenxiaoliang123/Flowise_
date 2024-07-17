@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 
 // material-ui
 import { styled, useTheme } from '@mui/material/styles'
@@ -67,6 +67,8 @@ const MainLayout = () => {
         dispatch({ type: SET_MENU, opened: !leftDrawerOpened })
     }
 
+    const location = useLocation() // new line to get current location
+
     useEffect(() => {
         setTimeout(() => dispatch({ type: SET_MENU, opened: !matchDownMd }), 0)
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -74,30 +76,41 @@ const MainLayout = () => {
 
     return (
         <Box sx={{ display: 'flex' }}>
-            <CssBaseline />
-            {/* header */}
-            <AppBar
-                enableColorOnDark
-                position='fixed'
-                color='inherit'
-                elevation={0}
-                sx={{
-                    bgcolor: theme.palette.background.default,
-                    transition: leftDrawerOpened ? theme.transitions.create('width') : 'none'
-                }}
-            >
-                <Toolbar sx={{ height: `${headerHeight}px`, borderBottom: '1px solid', borderColor: theme.palette.primary[200] + 75 }}>
-                    <Header handleLeftDrawerToggle={handleLeftDrawerToggle} />
-                </Toolbar>
-            </AppBar>
+            {location.pathname.includes('/cxl') && ( // conditionally render Main based on route
+                <Main theme={theme} open={leftDrawerOpened}>
+                    <Outlet />
+                </Main>
+            )}
+            {!location.pathname.includes('/cxl') && (
+                <>
+                    <CssBaseline />
+                    {/* header */}
+                    <AppBar
+                        enableColorOnDark
+                        position='fixed'
+                        color='inherit'
+                        elevation={0}
+                        sx={{
+                            bgcolor: theme.palette.background.default,
+                            transition: leftDrawerOpened ? theme.transitions.create('width') : 'none'
+                        }}
+                    >
+                        <Toolbar
+                            sx={{ height: `${headerHeight}px`, borderBottom: '1px solid', borderColor: theme.palette.primary[200] + 75 }}
+                        >
+                            <Header handleLeftDrawerToggle={handleLeftDrawerToggle} />
+                        </Toolbar>
+                    </AppBar>
 
-            {/* drawer */}
-            <Sidebar drawerOpen={leftDrawerOpened} drawerToggle={handleLeftDrawerToggle} />
+                    {/* drawer */}
+                    <Sidebar drawerOpen={leftDrawerOpened} drawerToggle={handleLeftDrawerToggle} />
 
-            {/* main content */}
-            <Main theme={theme} open={leftDrawerOpened}>
-                <Outlet />
-            </Main>
+                    {/* main content */}
+                    <Main theme={theme} open={leftDrawerOpened}>
+                        <Outlet />
+                    </Main>
+                </>
+            )}
         </Box>
     )
 }
