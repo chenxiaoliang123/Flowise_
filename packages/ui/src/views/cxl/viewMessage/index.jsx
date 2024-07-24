@@ -24,7 +24,7 @@ const ViewMessage = () => {
         }
     }, [getUrlParams])
 
-    return <>{viewMessagesOpen ? <ViewMessages dialogProps={viewMessagesDialogProps} /> : <div>参数不够，页面无法展示</div>}</>
+    return <>{viewMessagesOpen ? <ViewMessages show={true} dialogProps={viewMessagesDialogProps} /> : <div>参数不够，页面无法展示</div>}</>
 }
 
 export default ViewMessage

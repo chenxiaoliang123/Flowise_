@@ -74,7 +74,7 @@ export const MultiDropdown = ({ name, value, options, onSelect, formControlSx = 
 
 MultiDropdown.propTypes = {
     name: PropTypes.string,
-    value: PropTypes.string,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
     options: PropTypes.array,
     onSelect: PropTypes.func,
     disabled: PropTypes.bool,
