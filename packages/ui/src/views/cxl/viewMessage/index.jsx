@@ -1,38 +1,30 @@
 import { useState, useEffect, useMemo } from 'react'
-// project imports
-// import ViewMessagesDialog from '@/ui-component/dialog/ViewMessagesDialog'
 import ViewMessages from '@/ui-component/dialog/ViewMessagesCxl'
-// ==============================|| SETTINGS ||============================== //
 
 const ViewMessage = () => {
-    let url = location.href
+    const [viewMessagesDialogProps, setViewMessagesDialogProps] = useState({})
+    const [viewMessagesOpen, setViewMessagesOpen] = useState(false)
+
     const getUrlParams = useMemo(() => {
-        const paramsRegex = /[?&]+([^=&]+)=([^&]*)/gi
+        const urlParams = new URLSearchParams(window.location.search)
         const params = {}
-        let match
-        while ((match = paramsRegex.exec(url))) {
-            params[match[1]] = match[2]
+        for (let [key, value] of urlParams.entries()) {
+            params[key] = decodeURIComponent(value)
         }
         return params
-    }, [url])
-
-    console.info('cxl', url)
-    const [viewMessagesDialogProps, setViewMessagesDialogProps] = useState({})
-    const [viewMessagesDialogOpen, setViewMessagesDialogOpen] = useState(true)
+    }, [])
 
     useEffect(() => {
-        const chatFlowInfo = getUrlParams()
-        setViewMessagesDialogProps({ title: '查看消息', chatflow: chatFlowInfo })
-        console.info('cxl chatFlowInfo', chatFlowInfo)
+        const chatFlowInfo = getUrlParams
+        if (Object.keys(chatFlowInfo).length > 0) {
+            setViewMessagesOpen(true)
+            setViewMessagesDialogProps({ title: '查看消息', chatflow: chatFlowInfo })
+        } else {
+            setViewMessagesOpen(false)
+        }
     }, [getUrlParams])
 
-    return (
-        <ViewMessages
-            show={viewMessagesDialogOpen}
-            dialogProps={viewMessagesDialogProps}
-            onCancel={() => setViewMessagesDialogOpen(false)}
-        />
-    )
+    return <>{viewMessagesOpen ? <ViewMessages dialogProps={viewMessagesDialogProps} /> : <div>参数不够，页面无法展示</div>}</>
 }
 
 export default ViewMessage

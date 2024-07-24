@@ -8,7 +8,6 @@ const Documents = Loadable(lazy(() => import('@/views/docstorecxl')))
 const DocumentStoreDetail = Loadable(lazy(() => import('@/views/docstorecxl/DocumentStoreDetail')))
 const ShowStoredChunks = Loadable(lazy(() => import('@/views/docstorecxl/ShowStoredChunks')))
 const LoaderConfigPreviewChunks = Loadable(lazy(() => import('@/views/docstorecxl/LoaderConfigPreviewChunks')))
-const Canvas = Loadable(lazy(() => import('@/views/canvas')))
 const ViewMessage = Loadable(lazy(() => import('@/views/cxl/viewMessage/index')))
 // ==============================|| MAIN ROUTING ||============================== //
 

@@ -18,7 +18,7 @@ import userPNG from '@/assets/images/account.png'
 import msgEmptySVG from '@/assets/images/message_empty.svg'
 import multiagent_supervisorPNG from '@/assets/images/multiagent_supervisor.png'
 import multiagent_workerPNG from '@/assets/images/multiagent_worker.png'
-import { IconEraser, IconX, IconDownload } from '@tabler/icons-react'
+import { IconFileExport, IconEraser, IconX, IconDownload } from '@tabler/icons-react'
 
 // Project import
 import { MemoizedReactMarkdown } from '@/ui-component/markdown/MemoizedReactMarkdown'
@@ -67,7 +67,7 @@ const messageImageStyle = {
     objectFit: 'cover'
 }
 
-const ViewMessagesDialog = ({ show, dialogProps, onCancel }) => {
+const ViewMessages = ({ show, dialogProps, onCancel }) => {
     // const portalElement = document.getElementById('portal')
     const dispatch = useDispatch()
     const theme = useTheme()
@@ -516,7 +516,11 @@ const ViewMessagesDialog = ({ show, dialogProps, onCancel }) => {
                         formControlSx={{ mt: 0 }}
                     />
                 </div>
-                <div style={{ flex: 1 }}></div>
+                <div style={{ flex: 1, display: 'flex', justifyContent: 'end' }}>
+                    <Button variant='outlined' onClick={() => exportMessages()} startIcon={<IconFileExport />}>
+                        Export
+                    </Button>
+                </div>
             </div>
             <div
                 style={{
@@ -971,10 +975,10 @@ const ViewMessagesDialog = ({ show, dialogProps, onCancel }) => {
     return component
 }
 
-ViewMessagesDialog.propTypes = {
+ViewMessages.propTypes = {
     show: PropTypes.bool,
     dialogProps: PropTypes.object,
     onCancel: PropTypes.func
 }
 
-export default ViewMessagesDialog
+export default ViewMessages
